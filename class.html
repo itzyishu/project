@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-size: 20px;
+        }
+        .form-container {
+            background-color: #f0f8ff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 800px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Registration Form</h2>
+        <form action="/submit_form" method="post">
+            <label for="first-name">First Name:</label><br>
+            <input type="text" id="first-name" name="first-name" maxlength="30" pattern="[A-Za-z]+" required>
+            <small>Max size = 30 characters. Use A-Z and a-z only.</small><br><br>
+            
+            <label for="last-name">Last Name:</label><br>
+            <input type="text" id="last-name" name="last-name" maxlength="30" pattern="[A-Za-z]+" required>
+            <small>Max size = 30 characters. Use A-Z and a-z only.</small><br><br>
+            
+            <label for="dob">Date of Birth:</label><br>
+            <select id="dob-day" name="dob-day" required>
+                <option value="">Day</option>
+                <script>
+                    for (let i = 1; i <= 31; i++) {
+                        document.write('<option value="' + i + '">' + i + '</option>');
+                    }
+                </script>
+            </select>
+            <select id="dob-month" name="dob-month" required>
+                <option value="">Month</option>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+            <select id="dob-year" name="dob-year" required>
+                <option value="">Year</option>
+                <script>
+                    const currentYear = new Date().getFullYear();
+                    for (let i = currentYear; i >= 1900; i--) {
+                        document.write('<option value="' + i + '">' + i + '</option>');
+                    }
+                </script>
+            </select><br><br>
+            
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            
+            <label for="mobile">Mobile Number:</label><br>
+            <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required>
+            <small>10 digit number.</small><br><br>
+            <label>Gender:</label><br>
+            <input type="radio" id="male" name="gender" value="male" required>
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="gender" value="female" required>
+            <label for="female">Female</label><br>
+            <input type="radio" id="other" name="gender" value="other" required>
+            <label for="other">Other</label><br><br>
+            
+            <label for="address">Address:</label><br>
+            <textarea id="address" name="address" rows="4" cols="40" required></textarea>
+            <small>Max size = 50 characters.</small><br><br>
+            <label for="city">City:</label><br>
+            <input type="text" id="city" name="city" required><br><br>
+            <small>Max size = 30 characters. Use A-Z and a-z only.</small><br><br>
+            <label for="pincode">Pincode:</label><br>
+            <input type="text" id="pincode" name="pincode" pattern="[0-9]{6}" required>
+            <small>6 digit number.</small><br><br>
+            <label for="country">Country:</label><br>
+            <select id="country" name="country" required>
+                <option value="">Select Country</option>
+                <option value="India">India</option>
+                <option value="USA">USA</option>
+                <option value="UK">UK</option>
+                <option value="Canada">Canada</option>
+                <option value="Australia">Australia</option>
+                <option for="other-country">Other</label><br>
+            <input type="text" id="other-country-text" name="other-country-text" placeholder="If other,country name"><br><br>
+            </select><br><br>
+            
+            <label for="state">State:</label><br>
+            <input type="text" id="state" name="state" required>
+            <small>Max size = 30 characters. Use A-Z and a-z only.</small><br><br>
+            <label>Qualification Details:</label><br>
+            <table border="1">
+                <tr>
+                    <th>Qualification</th>
+                    <th>Board</th>
+                    <th>Percentage</th>
+                    <th>Passing Year</th>
+                </tr>
+                <tr>
+                    <td><input type="text" name="qualification1" required></td>
+                    <td><input type="text" name="board1" required></td>
+                    <td><input type="text" name="percentage1" pattern="[0-9]+(\.[0-9]{1,2})?" required></td>
+                    <td><input type="text" name="passing-year1" pattern="[0-9]{4}" required></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="qualification2"></td>
+                    <td><input type="text" name="board2"></td>
+                    <td><input type="text" name="percentage2" pattern="[0-9]+(\.[0-9]{1,2})?"></td>
+                    <td><input type="text" name="passing-year2" pattern="[0-9]{4}"></td>
+                </tr>
+            </table><br><br>
+            
+            <label>Course Applied For:</label><br>
+            <input type="radio" id="bcom" name="course" value="B.Com" required>
+            <label for="bcom">B.Com</label><br>
+            <input type="radio" id="btech" name="course" value="B.Tech" required>
+            <label for="btech">B.Tech</label><br>
+            <input type="radio" id="ba" name="course" value="B.A." required>
+            <label for="ba">B.A.</label><br>
+            <input type="radio" id="bsc" name="course" value="B.Sc" required>
+            <label for="bsc">B.Sc</label><br><br>
+            
+            <label>Hobbies:</label><br>
+            <input type="radio" id="reading" name="hobby" value="Reading">
+            <label for="reading">Reading</label><br>
+            <input type="radio" id="sports" name="hobby" value="Sports">
+            <label for="sports">Sports</label><br>
+            <input type="radio" id="music" name="hobby" value="Music">
+            <label for="music">Music</label><br>
+            <input type="radio" id="other-hobby" name="hobby" value="Other">
+            <label for="other-hobby">Other</label><br>
+            <input type="text" id="other-hobby-text" name="other-hobby-text" placeholder="If other, please specify"><br><br>
+            
+            <label for="photo">Upload Photo:</label><br>
+            <input type="file" id="photo" name="photo" accept="application/pdf" required>
+            <small>Upload should be in PDF format.</small><br><br>
+            
+            <label for="marksheet">Upload Marksheet:</label><br>
+            <input type="file" id="marksheet" name="marksheet" accept="application/pdf" required>
+            <small>Upload should be in PDF format.</small><br><br>
+
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form>
+    </div>
+</body>
+</html>
